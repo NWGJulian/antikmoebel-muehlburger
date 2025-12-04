@@ -6,6 +6,7 @@
   <title>Werner Mühlburger – Restaurator & Tischler</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <meta name="description" content="Werner Mühlburger – Restaurator antiker Möbel, Verkauf, Tischlerei und Chalet-Vermietung in Matrei, Osttirol.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
   <style>
     /* Hero-Header */
@@ -111,15 +112,19 @@
     <div class="row gy-3">
       <div class="col-md-6">
         <h5>Restaurierung antiker Möbel</h5>
-        <p>Konservierende und restaurative Arbeiten — Studium des Stücks, Holzprüfung, Stabilisierung, Oberflächenbehandlung (z. B. Schellack, Hartwachsöl), Wiederanbringung fehlender Teile wenn sinnvoll.</p>
+        <p>Konservierende und restaurative Arbeiten — Studium des Stücks, Holzprüfung, Stabilisierung, Oberflächenbehandlung (Schellack-Politur), Wiederanbringung fehlender Teile wenn sinnvoll.</p>
       </div>
+      <div class="col-md-6">
+        <h5>Restaurierung im inneren historischer Gebäude</h5>
+        <p>Massivholzarbeiten und Ergänzungen von Beschlägen und Schlössern, u.a. in Schlössern, Burgen und Holzhäusern. Erhaltung der ursprünglichen Substanz von Holzelementen.</p>
+      </div>	  
       <div class="col-md-6">
         <h5>Verkauf & Begutachtung</h5>
         <p>Beratung beim Ankauf/Verkauf von Antiquitäten, seriöse Bewertung, Aufbereitung für Verkauf.</p>
       </div>
       <div class="col-md-6">
-        <h5>Schreinerei & Sonderanfertigungen</h5>
-        <p>Kleinere Schreinerarbeiten, Ersatzteile für antike Möbel, Anfertigung von Möbelteilen im Stil des Originals.</p>
+        <h5>Tischlerei & Sonderanfertigungen</h5>
+        <p>Tischlerarbeiten, Ersatzteile für antike Möbel, Anfertigung von Möbelteilen im Stil des Originals.</p>
       </div>
       <div class="col-md-6">
         <h5>Abholung & Lieferung (auf Anfrage)</h5>
@@ -155,7 +160,8 @@
     <h2 class="mb-4">Chalet Mühlburger</h2>
     <div class="row gy-4">
       <div class="col-md-6">
-        <p>Werner betreibt ein Chalet in Matrei, das vermietet wird. Das Haus ist über 300 Jahre alt und wurde vom Hausherren liebevoll restauriert. Ideal für Gäste, die Ruhe und Authentizität in den Bergen suchen.</p>
+        <p>Werner betreibt ein Chalet in Matrei, welches ganzjährig vermietet wird. Das Haus ist über 350 Jahre alt und wurde vom Hausherren liebevoll restauriert. Ideal für Gäste, die Ruhe und Authentizität in den Bergen suchen.</p>
+		<p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
         <p>Details zur Hütte und Buchungsmöglichkeiten finden Sie hier: <a href="https://www.huettenland.com/huette/1467/Chalet-Muehlburger-in-Matrei-in-Osttirol/" target="_blank" rel="noopener">Chalet Mühlburger auf Huettenland</a>.</p>
       </div>
       <div class="col-md-6">
@@ -171,26 +177,57 @@
     <h2 class="mb-4">Kontakt</h2>
     <div class="row">
       <div class="col-md-6">
-        <p>Telefon: <a href="tel:+43485271920">+43 4852 71920</a></p>
-        <p>E-Mail: <a href="mailto:w.muehlburger@aon.at">w.muehlburger@aon.at</a></p>
-        <p>Adresse: Peggetzstraße 2, 9900 Lienz</p>
-        <p>Öffnungszeiten: nach Vereinbarung</p>
+<div class="mb-3">
+  <i class="bi bi-person-fill me-2"></i>
+  Werner Mühlburger
+</div>
+
+<ul class="list-unstyled">
+
+  <li class="mb-2">
+    <i class="bi bi-telephone-fill me-2"></i>
+    <a href="tel:+43485271920">+43 4852 71920</a>
+  </li>
+
+  <li class="mb-2">
+    <i class="bi bi-envelope-fill me-2"></i>
+    <a href="mailto:w.muehlburger@aon.at">w.muehlburger@aon.at</a>
+  </li>
+
+  <li class="mb-2">
+    <i class="bi bi-geo-alt-fill me-2"></i>
+    Peggetzstraße 2, 9900 Lienz
+  </li>
+
+  <li class="mb-2">
+    <i class="bi bi-clock-fill me-2"></i>
+    Öffnungszeiten: nach Vereinbarung
+  </li>
+
+</ul>
+
       </div>
+
       <div class="col-md-6">
-        <form action="mailto:w.muehlburger@aon.at" method="post" enctype="text/plain">
+        <form id="contactForm">
+
           <div class="mb-3">
             <label for="name" class="form-label">Ihr Name</label>
-            <input type="text" class="form-control" id="name" name="Name" required>
+            <input type="text" class="form-control" id="name" required>
           </div>
+
           <div class="mb-3">
             <label for="email" class="form-label">E-Mail</label>
-            <input type="email" class="form-control" id="email" name="E-Mail" required>
+            <input type="email" class="form-control" id="email" required>
           </div>
+
           <div class="mb-3">
             <label for="message" class="form-label">Nachricht</label>
-            <textarea class="form-control" id="message" name="Nachricht" rows="4" required></textarea>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
           </div>
+
           <button type="submit" class="btn btn-primary">Nachricht senden</button>
+
         </form>
       </div>
     </div>
@@ -216,7 +253,7 @@ const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const id = entry.target.getAttribute("id");
-    const navLink = document.querySelector(`.navbar-nav .nav-link[href="#${id}"]`);
+    const navLink = document.querySelector(\`.navbar-nav .nav-link[href="#\${id}"]\`);
     if (entry.isIntersecting) {
       navLinks.forEach(link => link.classList.remove("active"));
       navLink.classList.add("active");
@@ -225,6 +262,44 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 
 sections.forEach(section => observer.observe(section));
+
+// NEUE MAILTO FUNKTION
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nameValue = document.getElementById("name").value;
+    const emailValue = document.getElementById("email").value;
+    const messageValue = document.getElementById("message").value;
+
+    const subject = encodeURIComponent("Anfrage " + nameValue);
+
+    const body = encodeURIComponent(
+        "Name: " + nameValue + "\\n" +
+        "E-Mail: " + emailValue + "\\n\\n" +
+        "Nachricht:\\n" + messageValue
+    );
+
+    window.location.href = \`mailto:w.muehlburger@aon.at?subject=\${subject}&body=\${body}\`;
+});
+</script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nameValue = document.getElementById("name").value;
+    const emailValue = document.getElementById("email").value;
+    const messageValue = document.getElementById("message").value;
+
+    const subject = encodeURIComponent("Anfrage " + nameValue);
+
+    const body = encodeURIComponent(
+        "Name: " + nameValue + "\n" +
+        "E-Mail: " + emailValue + "\n\n" +
+        "Nachricht:\n" + messageValue
+    );
+
+    window.location.href = `mailto:w.muehlburger@aon.at?subject=${subject}&body=${body}`;
+});
 </script>
 </body>
 </html>
