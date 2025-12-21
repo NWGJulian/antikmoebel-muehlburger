@@ -21,7 +21,6 @@
       color: white;
       text-align: center;
     }
-
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -30,30 +29,34 @@
       height: 100%;
       background-color: rgba(0,0,0,0.5);
     }
-
     .hero-content {
       position: relative;
       z-index: 1;
       max-width: 800px;
     }
-
     .hero h1 {
       font-size: 4rem;
       font-weight: bold;
     }
-
     .hero p {
       font-size: 1.5rem;
       margin-top: 1rem;
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
+    }
+
+    /* Scroll Animation */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+      transition: all 0.8s ease-out;
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   </style>
 </head>
@@ -89,7 +92,7 @@
 </header>
 
 <!-- Über mich -->
-<section id="ueber" class="py-5">
+<section id="ueber" class="py-5 scroll-reveal">
   <div class="container">
     <h2 class="mb-4">Über mich</h2>
     <div class="row align-items-center">
@@ -106,7 +109,7 @@
 </section>
 
 <!-- Unsere Leistungen -->
-<section id="leistungen" class="py-5 bg-light">
+<section id="leistungen" class="py-5 bg-light scroll-reveal">
   <div class="container">
     <h2 class="mb-4">Meine Leistungen</h2>
     <div class="row gy-3">
@@ -131,7 +134,7 @@
 </section>
 
 <!-- Werkstatt & Galerie -->
-<section id="produkte" class="py-5">
+<section id="produkte" class="py-5 scroll-reveal">
   <div class="container">
     <h2 class="mb-4">Werkstatt & Galerie</h2>
     <p>Ein Einblick in die Restaurierungswerkstatt und laufende Arbeiten.</p>
@@ -183,19 +186,6 @@
   </div>
 </div>
 
-<script>
-  // Modal Bild aktualisieren beim Klick
-  const galleryImages = document.querySelectorAll('.gallery-img');
-  const modalImage = document.getElementById('modalImage');
-
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      modalImage.src = img.src;
-    });
-  });
-</script>
-
-
 <!-- Chalet -->
 <section id="chalet" class="py-5 bg-light">
   <div class="container">
@@ -228,62 +218,25 @@
 
 
 <!-- Kontakt -->
-<section id="kontakt" class="py-5">
+<section id="kontakt" class="py-5 scroll-reveal">
   <div class="container">
     <h2 class="mb-4">Kontakt</h2>
     <div class="row">
       <div class="col-md-6">
-<div class="mb-3">
-  <i class="bi bi-person-fill me-2"></i>
-  Werner Mühlburger
-</div>
-
-<ul class="list-unstyled">
-
-  <li class="mb-2">
-    <i class="bi bi-telephone-fill me-2"></i>
-    <a href="tel:+436504168738">+43 650 4168738</a>
-  </li>
-
-  <li class="mb-2">
-    <i class="bi bi-envelope-fill me-2"></i>
-    <a href="mailto:w.muehlburger@aon.at">w.muehlburger@aon.at</a>
-  </li>
-
-  <li class="mb-2">
-    <i class="bi bi-geo-alt-fill me-2"></i>
-    Peggetzstraße 2, 9900 Lienz
-  </li>
-
-  <li class="mb-2">
-    <i class="bi bi-clock-fill me-2"></i>
-    Öffnungszeiten: nach Vereinbarung
-  </li>
-
-</ul>
-
+        <div class="mb-3"><i class="bi bi-person-fill me-2"></i>Werner Mühlburger</div>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i><a href="tel:+436504168738">+43 650 4168738</a></li>
+          <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i><a href="mailto:w.muehlburger@aon.at">w.muehlburger@aon.at</a></li>
+          <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Peggetzstraße 2, 9900 Lienz</li>
+          <li class="mb-2"><i class="bi bi-clock-fill me-2"></i>Öffnungszeiten: nach Vereinbarung</li>
+        </ul>
       </div>
-
       <div class="col-md-6">
         <form id="contactForm">
-
-          <div class="mb-3">
-            <label for="name" class="form-label">Ihr Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">E-Mail</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="message" class="form-label">Nachricht</label>
-            <textarea class="form-control" id="message" rows="4" required></textarea>
-          </div>
-
+          <div class="mb-3"><label for="name" class="form-label">Ihr Name</label><input type="text" class="form-control" id="name" required></div>
+          <div class="mb-3"><label for="email" class="form-label">E-Mail</label><input type="email" class="form-control" id="email" required></div>
+          <div class="mb-3"><label for="message" class="form-label">Nachricht</label><textarea class="form-control" id="message" rows="4" required></textarea></div>
           <button type="submit" class="btn btn-primary">Nachricht senden</button>
-
         </form>
       </div>
     </div>
@@ -305,8 +258,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // ScrollSpy für Navbar
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-const observer = new IntersectionObserver((entries) => {
+const observerNav = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const id = entry.target.getAttribute("id");
     const navLink = document.querySelector(\`.navbar-nav .nav-link[href="#\${id}"]\`);
@@ -316,45 +268,38 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.6 });
+sections.forEach(section => observerNav.observe(section));
 
-sections.forEach(section => observer.observe(section));
+// Scroll-Animation Observer
+const revealElements = document.querySelectorAll('.scroll-reveal');
+const observerScroll = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observerScroll.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+revealElements.forEach(el => observerScroll.observe(el));
 
-// NEUE MAILTO FUNKTION
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nameValue = document.getElementById("name").value;
-    const emailValue = document.getElementById("email").value;
-    const messageValue = document.getElementById("message").value;
-
-    const subject = encodeURIComponent("Anfrage " + nameValue);
-
-    const body = encodeURIComponent(
-        "Name: " + nameValue + "\\n" +
-        "E-Mail: " + emailValue + "\\n\\n" +
-        "Nachricht:\\n" + messageValue
-    );
-
-    window.location.href = \`mailto:w.muehlburger@aon.at?subject=\${subject}&body=\${body}\`;
+// Modal Bild aktualisieren beim Klick
+const galleryImages = document.querySelectorAll('.gallery-img');
+const modalImage = document.getElementById('modalImage');
+galleryImages.forEach(img => {
+  img.addEventListener('click', () => {
+    modalImage.src = img.src;
+  });
 });
-</script>
-<script>
+
+// Kontaktformular
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nameValue = document.getElementById("name").value;
-    const emailValue = document.getElementById("email").value;
-    const messageValue = document.getElementById("message").value;
-
-    const subject = encodeURIComponent("Anfrage " + nameValue);
-
-    const body = encodeURIComponent(
-        "Name: " + nameValue + "\n" +
-        "E-Mail: " + emailValue + "\n\n" +
-        "Nachricht:\n" + messageValue
-    );
-
-    window.location.href = `mailto:w.muehlburger@aon.at?subject=${subject}&body=${body}`;
+  e.preventDefault();
+  const nameValue = document.getElementById("name").value;
+  const emailValue = document.getElementById("email").value;
+  const messageValue = document.getElementById("message").value;
+  const subject = encodeURIComponent("Anfrage " + nameValue);
+  const body = encodeURIComponent("Name: " + nameValue + "\nE-Mail: " + emailValue + "\n\nNachricht:\n" + messageValue);
+  window.location.href = `mailto:w.muehlburger@aon.at?subject=${subject}&body=${body}`;
 });
 </script>
 </body>
