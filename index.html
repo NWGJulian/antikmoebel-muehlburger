@@ -55,18 +55,6 @@
         font-size: 1rem;
       }
     }
-
-    /* Animierte Abschnitte */
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-out;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body>
@@ -101,7 +89,7 @@
 </header>
 
 <!-- Über mich -->
-<section id="ueber" class="py-5 reveal">
+<section id="ueber" class="py-5">
   <div class="container">
     <h2 class="mb-4">Über mich</h2>
     <div class="row align-items-center">
@@ -118,7 +106,7 @@
 </section>
 
 <!-- Unsere Leistungen -->
-<section id="leistungen" class="py-5 bg-light reveal">
+<section id="leistungen" class="py-5 bg-light">
   <div class="container">
     <h2 class="mb-4">Meine Leistungen</h2>
     <div class="row gy-3">
@@ -143,7 +131,7 @@
 </section>
 
 <!-- Werkstatt & Galerie -->
-<section id="produkte" class="py-5 reveal">
+<section id="produkte" class="py-5">
   <div class="container">
     <h2 class="mb-4">Werkstatt & Galerie</h2>
     <p>Ein Einblick in die Restaurierungswerkstatt und laufende Arbeiten.</p>
@@ -195,25 +183,52 @@
   </div>
 </div>
 
+<script>
+  // Modal Bild aktualisieren beim Klick
+  const galleryImages = document.querySelectorAll('.gallery-img');
+  const modalImage = document.getElementById('modalImage');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+    });
+  });
+</script>
+
+
 <!-- Chalet -->
-<section id="chalet" class="py-5 bg-light reveal">
+<section id="chalet" class="py-5 bg-light">
   <div class="container">
     <h2 class="mb-4">Chalet Mühlburger</h2>
     <div class="row gy-4">
       <div class="col-md-6">
         <p>Werner betreibt ein Chalet in Matrei, welches ganzjährig vermietet wird. Das Haus ist über 350 Jahre alt und wurde vom Hausherren liebevoll restauriert. Ideal für Gäste, die Ruhe und Authentizität in den Bergen suchen.</p>
-		<p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
+        <p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
         <p>Details zur Hütte und Buchungsmöglichkeiten finden Sie hier: <a href="https://www.huettenland.com/huette/1467/Chalet-Muehlburger-in-Matrei-in-Osttirol/" target="_blank" rel="noopener">Chalet Mühlburger auf Huettenland</a>.</p>
       </div>
       <div class="col-md-6">
+        <!-- Bild jetzt mit gallery-img Klasse für Modal -->
         <img src="img/chalet/20240713205852_Ansicht Chalet Muehlburger.jpg" alt="Chalet" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
       </div>
     </div>
   </div>
 </section>
 
+<script>
+  // Modal Bild aktualisieren beim Klick
+  const galleryImages = document.querySelectorAll('.gallery-img');
+  const modalImage = document.getElementById('modalImage');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+    });
+  });
+</script>
+
+
 <!-- Kontakt -->
-<section id="kontakt" class="py-5 reveal">
+<section id="kontakt" class="py-5">
   <div class="container">
     <h2 class="mb-4">Kontakt</h2>
     <div class="row">
@@ -284,7 +299,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -295,7 +309,7 @@ const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const id = entry.target.getAttribute("id");
-    const navLink = document.querySelector(\`.navbar-nav .nav-link[href="#\${id}"]\`);
+    const navLink = document.querySelector(\.navbar-nav .nav-link[href="#\${id}"]\);
     if (entry.isIntersecting) {
       navLinks.forEach(link => link.classList.remove("active"));
       navLink.classList.add("active");
@@ -305,30 +319,7 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observer.observe(section));
 
-// Modal Bild aktualisieren beim Klick
-const galleryImages = document.querySelectorAll('.gallery-img');
-const modalImage = document.getElementById('modalImage');
-
-galleryImages.forEach(img => {
-  img.addEventListener('click', () => {
-    modalImage.src = img.src;
-  });
-});
-
-// Reveal Animation beim Scrollen
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-    }
-  });
-}, { threshold: 0.2 });
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-// Mailto Funktion
+// NEUE MAILTO FUNKTION
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -337,13 +328,33 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     const messageValue = document.getElementById("message").value;
 
     const subject = encodeURIComponent("Anfrage " + nameValue);
+
+    const body = encodeURIComponent(
+        "Name: " + nameValue + "\\n" +
+        "E-Mail: " + emailValue + "\\n\\n" +
+        "Nachricht:\\n" + messageValue
+    );
+
+    window.location.href = \mailto:w.muehlburger@aon.at?subject=\${subject}&body=\${body}\;
+});
+</script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nameValue = document.getElementById("name").value;
+    const emailValue = document.getElementById("email").value;
+    const messageValue = document.getElementById("message").value;
+
+    const subject = encodeURIComponent("Anfrage " + nameValue);
+
     const body = encodeURIComponent(
         "Name: " + nameValue + "\n" +
         "E-Mail: " + emailValue + "\n\n" +
         "Nachricht:\n" + messageValue
     );
 
-    window.location.href = `mailto:w.muehlburger@aon.at?subject=${subject}&body=${body}`;
+    window.location.href = mailto:w.muehlburger@aon.at?subject=${subject}&body=${body};
 });
 </script>
 </body>
