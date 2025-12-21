@@ -21,6 +21,7 @@
       color: white;
       text-align: center;
     }
+
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -29,34 +30,42 @@
       height: 100%;
       background-color: rgba(0,0,0,0.5);
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
       max-width: 800px;
     }
+
     .hero h1 {
       font-size: 4rem;
       font-weight: bold;
     }
+
     .hero p {
       font-size: 1.5rem;
       margin-top: 1rem;
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
     }
 
-    /* Scroll Animation */
-    .scroll-reveal {
+    /* Animierte Abschnitte */
+    .reveal {
       opacity: 0;
-      transform: translateY(50px) scale(0.95);
+      transform: translateY(50px);
       transition: all 0.8s ease-out;
     }
-    .scroll-reveal.visible {
+
+    .reveal.active {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -92,7 +101,7 @@
 </header>
 
 <!-- Über mich -->
-<section id="ueber" class="py-5 scroll-reveal">
+<section id="ueber" class="py-5 reveal">
   <div class="container">
     <h2 class="mb-4">Über mich</h2>
     <div class="row align-items-center">
@@ -109,7 +118,7 @@
 </section>
 
 <!-- Unsere Leistungen -->
-<section id="leistungen" class="py-5 bg-light scroll-reveal">
+<section id="leistungen" class="py-5 bg-light reveal">
   <div class="container">
     <h2 class="mb-4">Meine Leistungen</h2>
     <div class="row gy-3">
@@ -134,7 +143,7 @@
 </section>
 
 <!-- Werkstatt & Galerie -->
-<section id="produkte" class="py-5 scroll-reveal">
+<section id="produkte" class="py-5 reveal">
   <div class="container">
     <h2 class="mb-4">Werkstatt & Galerie</h2>
     <p>Ein Einblick in die Restaurierungswerkstatt und laufende Arbeiten.</p>
@@ -187,56 +196,79 @@
 </div>
 
 <!-- Chalet -->
-<section id="chalet" class="py-5 bg-light">
+<section id="chalet" class="py-5 bg-light reveal">
   <div class="container">
     <h2 class="mb-4">Chalet Mühlburger</h2>
     <div class="row gy-4">
       <div class="col-md-6">
         <p>Werner betreibt ein Chalet in Matrei, welches ganzjährig vermietet wird. Das Haus ist über 350 Jahre alt und wurde vom Hausherren liebevoll restauriert. Ideal für Gäste, die Ruhe und Authentizität in den Bergen suchen.</p>
-        <p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
+		<p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
         <p>Details zur Hütte und Buchungsmöglichkeiten finden Sie hier: <a href="https://www.huettenland.com/huette/1467/Chalet-Muehlburger-in-Matrei-in-Osttirol/" target="_blank" rel="noopener">Chalet Mühlburger auf Huettenland</a>.</p>
       </div>
       <div class="col-md-6">
-        <!-- Bild jetzt mit gallery-img Klasse für Modal -->
         <img src="img/chalet/20240713205852_Ansicht Chalet Muehlburger.jpg" alt="Chalet" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // Modal Bild aktualisieren beim Klick
-  const galleryImages = document.querySelectorAll('.gallery-img');
-  const modalImage = document.getElementById('modalImage');
-
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      modalImage.src = img.src;
-    });
-  });
-</script>
-
-
 <!-- Kontakt -->
-<section id="kontakt" class="py-5 scroll-reveal">
+<section id="kontakt" class="py-5 reveal">
   <div class="container">
     <h2 class="mb-4">Kontakt</h2>
     <div class="row">
       <div class="col-md-6">
-        <div class="mb-3"><i class="bi bi-person-fill me-2"></i>Werner Mühlburger</div>
-        <ul class="list-unstyled">
-          <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i><a href="tel:+436504168738">+43 650 4168738</a></li>
-          <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i><a href="mailto:w.muehlburger@aon.at">w.muehlburger@aon.at</a></li>
-          <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Peggetzstraße 2, 9900 Lienz</li>
-          <li class="mb-2"><i class="bi bi-clock-fill me-2"></i>Öffnungszeiten: nach Vereinbarung</li>
-        </ul>
+<div class="mb-3">
+  <i class="bi bi-person-fill me-2"></i>
+  Werner Mühlburger
+</div>
+
+<ul class="list-unstyled">
+
+  <li class="mb-2">
+    <i class="bi bi-telephone-fill me-2"></i>
+    <a href="tel:+436504168738">+43 650 4168738</a>
+  </li>
+
+  <li class="mb-2">
+    <i class="bi bi-envelope-fill me-2"></i>
+    <a href="mailto:w.muehlburger@aon.at">w.muehlburger@aon.at</a>
+  </li>
+
+  <li class="mb-2">
+    <i class="bi bi-geo-alt-fill me-2"></i>
+    Peggetzstraße 2, 9900 Lienz
+  </li>
+
+  <li class="mb-2">
+    <i class="bi bi-clock-fill me-2"></i>
+    Öffnungszeiten: nach Vereinbarung
+  </li>
+
+</ul>
+
       </div>
+
       <div class="col-md-6">
         <form id="contactForm">
-          <div class="mb-3"><label for="name" class="form-label">Ihr Name</label><input type="text" class="form-control" id="name" required></div>
-          <div class="mb-3"><label for="email" class="form-label">E-Mail</label><input type="email" class="form-control" id="email" required></div>
-          <div class="mb-3"><label for="message" class="form-label">Nachricht</label><textarea class="form-control" id="message" rows="4" required></textarea></div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Ihr Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">E-Mail</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Nachricht</label>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
+          </div>
+
           <button type="submit" class="btn btn-primary">Nachricht senden</button>
+
         </form>
       </div>
     </div>
@@ -252,13 +284,15 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // ScrollSpy für Navbar
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-const observerNav = new IntersectionObserver((entries) => {
+
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     const id = entry.target.getAttribute("id");
     const navLink = document.querySelector(\`.navbar-nav .nav-link[href="#\${id}"]\`);
@@ -268,38 +302,48 @@ const observerNav = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.6 });
-sections.forEach(section => observerNav.observe(section));
 
-// Scroll-Animation Observer
-const revealElements = document.querySelectorAll('.scroll-reveal');
-const observerScroll = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observerScroll.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-revealElements.forEach(el => observerScroll.observe(el));
+sections.forEach(section => observer.observe(section));
 
 // Modal Bild aktualisieren beim Klick
 const galleryImages = document.querySelectorAll('.gallery-img');
 const modalImage = document.getElementById('modalImage');
+
 galleryImages.forEach(img => {
   img.addEventListener('click', () => {
     modalImage.src = img.src;
   });
 });
 
-// Kontaktformular
+// Reveal Animation beim Scrollen
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.2 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Mailto Funktion
 document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const nameValue = document.getElementById("name").value;
-  const emailValue = document.getElementById("email").value;
-  const messageValue = document.getElementById("message").value;
-  const subject = encodeURIComponent("Anfrage " + nameValue);
-  const body = encodeURIComponent("Name: " + nameValue + "\nE-Mail: " + emailValue + "\n\nNachricht:\n" + messageValue);
-  window.location.href = `mailto:w.muehlburger@aon.at?subject=${subject}&body=${body}`;
+    e.preventDefault();
+
+    const nameValue = document.getElementById("name").value;
+    const emailValue = document.getElementById("email").value;
+    const messageValue = document.getElementById("message").value;
+
+    const subject = encodeURIComponent("Anfrage " + nameValue);
+    const body = encodeURIComponent(
+        "Name: " + nameValue + "\n" +
+        "E-Mail: " + emailValue + "\n\n" +
+        "Nachricht:\n" + messageValue
+    );
+
+    window.location.href = `mailto:w.muehlburger@aon.at?subject=${subject}&body=${body}`;
 });
 </script>
 </body>
