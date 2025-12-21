@@ -136,19 +136,65 @@
     <h2 class="mb-4">Werkstatt & Galerie</h2>
     <p>Ein Einblick in die Restaurierungswerkstatt und laufende Arbeiten.</p>
     <div class="row gy-4">
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-8.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-10-420x241.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-11-420x241.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-12-420x241.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-13.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-16.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-19.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Osttirol-heute-6.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Osttirol-heute-7.jpg" class="img-fluid rounded shadow"></div>
-      <div class="col-md-4"><img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Osttirol-heute-8.jpg" class="img-fluid rounded shadow"></div>
+      <!-- Galerie-Bilder mit Modal Trigger -->
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-8.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-10-420x241.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-11-420x241.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-12-420x241.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-13.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-16.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Martin-Lugger-19.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Osttirol-heute-6.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Osttirol-heute-7.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
+      <div class="col-md-4">
+        <img src="img/werkstatt/Restaurator-Werner-Mühlburger_c_Osttirol-heute-8.jpg" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Modal für vergrößerte Bilder -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <img src="" id="modalImage" class="img-fluid rounded shadow">
+      </div>
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal Bild aktualisieren beim Klick
+  const galleryImages = document.querySelectorAll('.gallery-img');
+  const modalImage = document.getElementById('modalImage');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+    });
+  });
+</script>
+
 
 <!-- Chalet -->
 <section id="chalet" class="py-5 bg-light">
