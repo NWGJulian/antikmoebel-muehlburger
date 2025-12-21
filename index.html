@@ -203,15 +203,29 @@
     <div class="row gy-4">
       <div class="col-md-6">
         <p>Werner betreibt ein Chalet in Matrei, welches ganzjährig vermietet wird. Das Haus ist über 350 Jahre alt und wurde vom Hausherren liebevoll restauriert. Ideal für Gäste, die Ruhe und Authentizität in den Bergen suchen.</p>
-		<p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
+        <p>Das Chalet in der Nähe von Matrei in Osttirol bietet Platz für bis zu 5 Personen, ist beheizt und bietet jeglichen modernen Komfort (E-Herd, WLAN, Spül- und Waschmaschine).</p>
         <p>Details zur Hütte und Buchungsmöglichkeiten finden Sie hier: <a href="https://www.huettenland.com/huette/1467/Chalet-Muehlburger-in-Matrei-in-Osttirol/" target="_blank" rel="noopener">Chalet Mühlburger auf Huettenland</a>.</p>
       </div>
       <div class="col-md-6">
-        <img src="img/chalet/20240713205852_Ansicht Chalet Muehlburger.jpg" alt="Chalet" class="img-fluid rounded shadow">
+        <!-- Bild jetzt mit gallery-img Klasse für Modal -->
+        <img src="img/chalet/20240713205852_Ansicht Chalet Muehlburger.jpg" alt="Chalet" class="img-fluid rounded shadow gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal">
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Modal Bild aktualisieren beim Klick
+  const galleryImages = document.querySelectorAll('.gallery-img');
+  const modalImage = document.getElementById('modalImage');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+    });
+  });
+</script>
+
 
 <!-- Kontakt -->
 <section id="kontakt" class="py-5">
